@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIRBNB CLEAN PARIS — Nettoyage Airbnb Professionnel en Région Parisienne</title>
+    <meta name="description" content="Service de nettoyage professionnel pour locations Airbnb en région parisienne. Disponible 7j/7, devis gratuit.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue-dark: #1E3A8A;
+            --blue-light: #3B82F6;
+            --gray-bg: #F3F4F6;
+            --white: #FFFFFF;
+            --green: #10B981;
+            --orange-cta: #F97316;
+            --orange-hover: #EA580C;
+            --text-dark: #1F2937;
+            --text-muted: #6B7280;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 16px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Satoshi', 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--blue-dark);
+        }
+
+        .logo span {
+            color: var(--blue-light);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-left: 32px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--blue-light);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-orange {
+            background: var(--orange-cta);
+            color: var(--white);
+        }
+
+        .btn-orange:hover {
+            background: var(--orange-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(249,115,22,0.3);
+        }
+
+        .btn-blue {
+            background: var(--blue-light);
+            color: var(--white);
+        }
+
+        .btn-blue:hover {
+            background: var(--blue-dark);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #EFF6FF 0%, var(--gray-bg) 100%);
+            position: relative;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Satoshi', 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 2.75rem;
+            line-height: 1.2;
+            color: var(--blue-dark);
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: var(--green);
+            font-weight: 500;
+        }
+
+        .hero-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(30,58,138,0.1);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Services */
+        .services {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            font-family: 'Satoshi', 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--blue-dark);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 60px;
+            font-size: 1.05rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 24px rgba(30,58,138,0.08);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            background: #EFF6FF;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--blue-light);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-card h3 {
+            font-family: 'Satoshi', 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--blue-dark);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Why Us */
+        .why-us {
+            padding: 100px 0;
+            background: var(--gray-bg);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 40px 24px;
+        }
+
+        .why-number {
+            width: 48px;
+            height: 48px;
+            background: var(--blue-light);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 auto 20px;
+        }
+
+        .why-item h3 {
+            font-family: 'Satoshi', 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--blue-dark);
+            margin-bottom: 10px;
+        }
+
+        .why-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--blue-dark);
+            color: var(--white);
+        }
+
+        .testimonials .section-title {
+            color: var(--white);
+        }
+
+        .testimonials .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .stars {
+            color: #FBBF24;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 16px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Contact */
+        .contact {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-family: 'Satoshi', 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--blue-dark);
+            margin-bottom: 16px;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .contact-detail svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--blue-light);
+            fill: none;
+            stroke-width: 1.5;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background: var(--gray-bg);
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #D1D5DB;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--blue-light);
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--blue-dark);
+            padding: 48px 0 24px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 32px;
+        }
+
+        .footer-logo {
+            font-family: 'Satoshi', 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="logo">AIRBNB CLEAN <span>PARIS</span></div>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#pourquoi">Pourquoi nous</a>
+            <a href="#avis">Avis</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content fade-in">
+            <h1>Nettoyage Airbnb Professionnel — Région Parisienne</h1>
+            <p>Disponible 7j/7 · Expérience Airbnb confirmée · Devis gratuit</p>
+            <a href="#contact" class="btn btn-orange">Obtenir mon devis gratuit</a>
+            <div class="hero-badges">
+                <span class="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                    Disponible 7j/7
+                </span>
+                <span class="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                    +200 logements nettoyés
+                </span>
+                <span class="badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                    Devis en 24h
+                </span>
+            </div>
+        </div>
+        <div class="hero-image fade-in">
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=400&fit=crop" alt="Logement Airbnb propre et lumineux">
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="section-title fade-in">Nos Services</h2>
+        <p class="section-subtitle fade-in">Des prestations adaptées aux hôtes Airbnb exigeants</p>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4"/></svg>
+                </div>
+                <h3>Nettoyage complet</h3>
+                <p>Ménage intégral du logement entre chaque voyageur : sols, sanitaires, cuisine, poussières.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+                </div>
+                <h3>Changement de linge</h3>
+                <p>Draps, serviettes et torchons frais à chaque rotation. Linge fourni ou le vôtre.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                </div>
+                <h3>Réassort consommables</h3>
+                <p>Savon, shampoing, papier toilette, capsules café — tout est prêt pour le prochain guest.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <h3>Pack tout-en-un</h3>
+                <p>Nettoyage + linge + réassort en une seule intervention. Gain de temps garanti.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Us -->
+<section class="why-us" id="pourquoi">
+    <div class="container">
+        <h2 class="section-title fade-in">Pourquoi nous choisir</h2>
+        <p class="section-subtitle fade-in">Ce qui fait la différence pour les hôtes Airbnb</p>
+        <div class="why-grid">
+            <div class="why-item fade-in">
+                <div class="why-number">1</div>
+                <h3>Disponibilité 7j/7</h3>
+                <p>Check-out le dimanche à 11h ? Pas de problème. Nous intervenons tous les jours, y compris weekends et jours fériés.</p>
+            </div>
+            <div class="why-item fade-in">
+                <div class="why-number">2</div>
+                <h3>Expérience Airbnb spécifique</h3>
+                <p>Nous connaissons les standards attendus par les voyageurs : détails visibles, présentation soignée, timing serré entre deux réservations.</p>
+            </div>
+            <div class="why-item fade-in">
+                <div class="why-number">3</div>
+                <h3>Plusieurs services regroupés</h3>
+                <p>Un seul prestataire pour le ménage, le linge et les consommables. Moins de coordination, plus de tranquillité.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials" id="avis">
+    <div class="container">
+        <h2 class="section-title fade-in">Ce que disent nos clients</h2>
+        <p class="section-subtitle fade-in">Des hôtes satisfaits dans toute la région parisienne</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p>« Service impeccable, mes voyageurs notent systématiquement 5 étoiles pour la propreté depuis que je travaille avec eux. »</p>
+                <div class="testimonial-author">Sophie L. — Paris 11e</div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p>« Réactifs même le dimanche matin. Le pack tout-en-un me fait gagner un temps fou sur mes 3 appartements. »</p>
+                <div class="testimonial-author">Karim B. — Boulogne-Billancourt</div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p>« Professionnels et fiables. Je n'ai plus besoin de vérifier après leur passage, tout est toujours parfait. »</p>
+                <div class="testimonial-author">Marie D. — Saint-Denis</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="contact-info fade-in">
+                <h2>Demandez votre devis gratuit</h2>
+                <p>Réponse sous 24h. Nous intervenons sur Paris et toute la petite couronne.</p>
+                <div class="contact-detail">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <span>06 12 34 56 78</span>
+                </div>
+                <div class="contact-detail">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>contact@airbnbcleanparis.fr</span>
+                </div>
+                <div class="contact-detail">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>Paris & petite couronne (92, 93, 94)</span>
+                </div>
+            </div>
+            <form class="contact-form fade-in" onsubmit="event.preventDefault(); alert('Merci ! Nous vous recontactons sous 24h.');">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="06 00 00 00 00">
+                </div>
+                <div class="form-group">
+                    <label for="zone">Zone</label>
+                    <select id="zone" name="zone">
+                        <option value="">Sélectionnez votre zone</option>
+                        <option value="paris">Paris intra-muros</option>
+                        <option value="92">Hauts-de-Seine (92)</option>
+                        <option value="93">Seine-Saint-Denis (93)</option>
+                        <option value="94">Val-de-Marne (94)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Décrivez votre besoin (nombre de logements, fréquence, services souhaités...)"></textarea>
+                </div>
+                <button type="submit" class="btn btn-orange">Demander un devis</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">AIRBNB CLEAN PARIS</div>
+                <p>Nettoyage professionnel pour locations courte durée</p>
+            </div>
+            <div>
+                <p>📞 06 12 34 56 78</p>
+                <p>✉️ contact@airbnbcleanparis.fr</p>
+                <p>📍 Paris & petite couronne</p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            © 2026 AIRBNB CLEAN PARIS — Tous droits réservés
+        </div>
+    </div>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 100);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
